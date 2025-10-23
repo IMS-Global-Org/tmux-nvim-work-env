@@ -40,3 +40,5 @@
 	tool = nvimdiff
 [difftool]
 	prompt = false
+[credential]
+	helper = store
