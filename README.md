@@ -46,6 +46,12 @@ Must install in order
 ```vim
 :CocInstall coc-json coc-tsserver
 ```
+- Must add this to the coc-settings file to have jump definitions open in new tabs. Open with `:CocConfig`
+    ```
+    {
+      "coc.preferences.jumpCommand": "tabe"
+    }
+    ```
 
 ## TMux Config
 - Prefix - CTRL+ a

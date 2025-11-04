@@ -46,7 +46,6 @@ call plug#begin('~/.vim/plugged')
 
   " VIM
   Plug 'guns/xterm-color-table.vim'
-  Plug 'mhinz/vim-startify'
   Plug 'djoshea/vim-autoread'
   Plug 'mkitt/tabline.vim'
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
@@ -58,6 +57,12 @@ call plug#begin('~/.vim/plugged')
 
   " Conquer of Completion (Coc)
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+  " Goofy Message at the top
+  Plug 'mhinz/vim-startify'
+
+  " Go Programming
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
@@ -303,6 +308,7 @@ let g:coc_global_extensions = [
       \ 'coc-css',
       \ 'coc-eslint',
       \ 'coc-html',
+      \ 'coc-go',
       \ ]
 " COC: GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
