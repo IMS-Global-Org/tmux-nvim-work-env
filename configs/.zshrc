@@ -8,6 +8,9 @@ export GOROOT=$(go env GOROOT)
 export GOPATH=$(go env GOPATH)
 export PATH="$PATH:$(go env GOBIN)"
 
+# Python paths
+export PATH="$HOME/.local/bin:$PATH"
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
