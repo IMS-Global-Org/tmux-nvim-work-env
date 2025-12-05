@@ -1,5 +1,15 @@
 # If you come from bash you might have to change your $PATH.
- export PATH=$HOME/.asdf/shims:$HOME/bin:/usr/local/bin:$PATH
+#export PATH=$HOME/.asdf/shims:$HOME/bin:/usr/local/bin:$PATH
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+# Set ASDF GO paths
+export GOROOT=$(go env GOROOT)
+export GOPATH=$(go env GOPATH)
+export PATH="$PATH:$(go env GOBIN)"
+
+# Python paths
+export PATH="$HOME/.local/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -150,3 +160,8 @@ function docker-helpers() {
   echo 'drb - docker-compose run --rm web  bash'
   echo 'ds - docker-compose run --service-ports --rm web bash'
 }
+
+
+# Rosetta 2 Terminal
+alias arm="env /usr/bin/arch -arm64 /bin/zsh --login"
+alias intel="env /usr/bin/arch -x86_64 /bin/zsh --login" 

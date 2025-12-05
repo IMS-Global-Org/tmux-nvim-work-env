@@ -1,5 +1,4 @@
 set runtimepath^=~/.vim runtimepath+=/.vim/after
-let &packpath = &runtimepath
 source ~/.vimrc
 
 
@@ -34,7 +33,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tveskag/nvim-blame-line'
 
   " Views
-  Plug 'altercation/vim-colors-solarized'
+  Plug 'shaunsingh/solarized.nvim'
   Plug 'itchyny/lightline.vim'
 
   " Text completion & Syntax Checking
@@ -47,9 +46,7 @@ call plug#begin('~/.vim/plugged')
 
   " VIM
   Plug 'guns/xterm-color-table.vim'
-  Plug 'mhinz/vim-startify'
   Plug 'djoshea/vim-autoread'
-  Plug 'ap/vim-buftabline'
   Plug 'mkitt/tabline.vim'
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
@@ -60,6 +57,12 @@ call plug#begin('~/.vim/plugged')
 
   " Conquer of Completion (Coc)
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+  " Goofy Message at the top
+  Plug 'mhinz/vim-startify'
+
+  " Go Programming
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
@@ -72,13 +75,15 @@ nmap <leader>vv :e $MYVIMRC<CR>
 nmap <leader>sv :source $MYVIMRC<CR>
 nmap <leader>pp :PlugInstall<CR>
 
-" Color Scheme
-let g:solarized_termcolors=256
-set background=light
+" Solarized Color Scheme
+let g:solarized_italic_comments = v:true
+let g:solarized_italic_keywords = v:true
+let g:solarized_italic_functions = v:true
+let g:solarized_italic_variables = v:false
+let g:solarized_contrast = v:true
+let g:solarized_borders = v:false
+let g:solarized_disable_background = v:false
 colorscheme solarized
-let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ }
 
 " Enable syntax highlighting
 syntax on
@@ -272,7 +277,7 @@ endif
 
 " Spelling
 set spell
-set spelllang=en
+set spelllang=en,es
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -303,6 +308,7 @@ let g:coc_global_extensions = [
       \ 'coc-css',
       \ 'coc-eslint',
       \ 'coc-html',
+      \ 'coc-go',
       \ ]
 " COC: GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
